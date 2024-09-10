@@ -1,0 +1,130 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+    background-color: transparent;
+    height: 8px;
+    
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: orangered;
+}
+.marque h1{
+    -webkit-text-stroke: 2px black;
+    color: transparent;
+    letter-spacing: 2px;
+    animation: move;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: reverse;
+}
+@keyframes move {
+    from{
+        transform: translateX(0);
+    }
+    from{
+        transform: translateX(calc(-100% - 20px));
+    }
+    
+}
+
+.slider {
+    display: flex;
+    width: max-content;
+    animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.container .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+}
+
+.box:hover .content {
+    opacity: 1;
+    transform: translate(0%, -80%);
+    transition: all 0.8s ease;
+    background-color: rgba(30, 28, 31, 0.5);
+    width: 100%;
+    height: 40%;
+    border-radius: 20px;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+
+.right .bottom .bottom-left input:placeholder-shown{
+    font-weight: 700;
+    font-size: 20px;    
+}
+
+.footer  a h3:hover{
+    font-weight: 600;
+    
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  /* padding: 60px 0; */
+  position: relative;
+}
+
+.logos-slide {
+  display: flex;
+  animation: slide 10s linear infinite;
+  /* Expanded to 200% to account for duplicate logos */
+  width: 200%;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide img {
+  height: 250px;
+  margin: 0 40px;
+  object-fit: cover;
+}
